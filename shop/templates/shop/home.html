@@ -1,0 +1,829 @@
+{% load thumbnail %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<script src="{% static 'js/script.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><!--metatextblock--><title>Заказ
+    Продуктов</title>
+    <meta name="description"
+          content="Базовый шаблон магазина с логотипом и описанием на первом экране и плиткой товаров."/>
+    <meta property="og:url" content="http://dostavkaedinikisham.tilda.ws"/>
+    <meta property="og:title" content="Заказ Piterochka"/>
+    <meta property="og:description"
+          content="Базовый шаблон магазина с логотипом и описанием на первом экране и плиткой товаров."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image"
+          content="https://static.tildacdn.info/tild6135-3966-4631-b165-663365623639/-/resize/504x/NS_1.png"/>
+    <link rel="canonical" href="http://dostavkaedinikisham.tilda.ws"><!--/metatextblock-->
+    <meta property="fb:app_id" content="257953674358265"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://ws.tildacdn.com">
+    <link rel="dns-prefetch" href="https://static.tildacdn.info">
+    <link rel="shortcut icon" href="https://static.tildacdn.info/img/tildafavicon.ico" type="image/x-icon"/>
+    <!-- Assets -->
+    <script src="https://stat.tildacdn.com/js/tilda-fallback-1.0.min.js" charset="utf-8" async></script>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-grid-3.0.min.css" type="text/css" media="all"
+          onerror="this.loaderr='y';"/>
+    <link rel="stylesheet" href="/tilda-blocks-2.14.css?t=1650713652" type="text/css" media="all"
+          onerror="this.loaderr='y';"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&subset=latin,cyrillic"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-animation-1.0.min.css" type="text/css"
+          media="all" onerror="this.loaderr='y';"/>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-menusub-1.0.min.css" type="text/css"
+          media="print" onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-menusub-1.0.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-popup-1.1.min.css" type="text/css" media="print"
+          onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-popup-1.1.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-slds-1.4.min.css" type="text/css" media="print"
+          onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-slds-1.4.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-zoom-2.0.min.css" type="text/css" media="print"
+          onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-zoom-2.0.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-catalog-1.1.min.css" type="text/css"
+          media="print" onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-catalog-1.1.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-forms-1.0.min.css" type="text/css" media="all"
+          onerror="this.loaderr='y';"/>
+    <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-delivery-1.0.min.css" type="text/css"
+          media="print" onload="this.media='all';" onerror="this.loaderr='y';"/>
+    <noscript>
+        <link rel="stylesheet" href="https://static.tildacdn.info/css/tilda-delivery-1.0.min.css" type="text/css"
+              media="all"/>
+    </noscript>
+    <script src="https://static.tildacdn.info/js/jquery-1.10.2.min.js" onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-scripts-3.0.min.js" onerror="this.loaderr='y';"></script>
+    <script src="/tilda-blocks-2.7.js?t=1650713652" onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/lazyload-1.3.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-animation-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-cover-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-events-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-menusub-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/hammer.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-slds-1.4.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-products-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-zoom-2.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-catalog-1.1.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-forms-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-cart-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script src="https://static.tildacdn.info/js/tilda-delivery-1.0.min.js" charset="utf-8" async
+            onerror="this.loaderr='y';"></script>
+    <script type="text/javascript">window.dataLayer = window.dataLayer || [];</script>
+    <script type="text/javascript">(function () {
+        if ((/bot|google|yandex|baidu|bing|msn|duckduckbot|teoma|slurp|crawler|spider|robot|crawling|facebook/i.test(navigator.userAgent)) === false && typeof (sessionStorage) != 'undefined' && sessionStorage.getItem('visited') !== 'y' && document.visibilityState) {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = '@media screen and (min-width: 980px) {.t-records {opacity: 0;}.t-records_animated {-webkit-transition: opacity ease-in-out .2s;-moz-transition: opacity ease-in-out .2s;-o-transition: opacity ease-in-out .2s;transition: opacity ease-in-out .2s;}.t-records.t-records_visible {opacity: 1;}}';
+            document.getElementsByTagName('head')[0].appendChild(style);
+
+            function t_setvisRecs() {
+                var alr = document.querySelectorAll('.t-records');
+                Array.prototype.forEach.call(alr, function (el) {
+                    el.classList.add("t-records_animated");
+                });
+                setTimeout(function () {
+                    Array.prototype.forEach.call(alr, function (el) {
+                        el.classList.add("t-records_visible");
+                    });
+                    sessionStorage.setItem("visited", "y");
+                }, 400);
+            }
+
+            document.addEventListener('DOMContentLoaded', t_setvisRecs);
+        }
+    })();
+    </script>
+</head>
+<body class="t-body" style="margin:0;"><!--allrecords-->
+<div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="5439005"
+     data-tilda-page-id="26864508" data-tilda-formskey="92024c5951360cc4d39f8dbd95439005" data-tilda-lazy="yes">
+    <div id="rec433687320" class="r t-rec t-rec_pt_45 t-rec_pb_45"
+         style="padding-top:45px;padding-bottom:45px;background-color:#ffffff; " data-animationappear="off"
+         data-record-type="454" data-bg-color="#ffffff"><!-- T454 -->
+        <div id="nav433687320marker"></div>
+
+        <div id="nav433687320" class="t454 t454__positionstatic "
+             style="background-color: rgba(255,255,255,1); height:200px; " data-bgcolor-hex="#ffffff"
+             data-bgcolor-rgba="rgba(255,255,255,1)" data-navmarker="nav433687320marker" data-appearoffset=""
+             data-bgopacity-two="" data-menushadow="" data-bgopacity="1" data-menu-items-align="" data-menu="yes">
+
+            <div class="t454__maincontainer t454__c12collumns" style="height:200px;">
+                <div class="t454__logowrapper">
+                    <div class="t454__logowrapper2">
+                        <div style="display: block;"><a href="/"
+
+                                                        style="color:#000000;font-size:48px;font-weight:700;"> <img
+                                src="https://static.tildacdn.info/tild6135-3966-4631-b165-663365623639/NS_1.png"
+                                class="t454__imglogo t454__imglogomobile" imgfield="img"
+                                style="max-width: 150px; width: 150px;" alt=""> </a></div>
+                    </div>
+
+                </div>
+                <div class="t454__rightwrapper"
+                     style="padding-right:20px; padding-left:125px; text-align: right;"></div>
+            </div>
+        </div>
+        <style>@media screen and (max-width: 980px) {
+            #rec433687320 .t454__leftcontainer {
+                padding: 20px;
+            }
+        }
+
+        @media screen and (max-width: 980px) {
+            #rec433687320 .t454__imglogo {
+                padding: 20px 0;
+            }
+        }
+        </style>
+        <script>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    t454_highlight();
+                }, 500);
+            });
+            $(window).resize(function () {
+                t454_setBg('433687320');
+            });
+            $(document).ready(function () {
+                t454_setBg('433687320');
+            });
+        </script>
+        <style>#rec433687320 .t-menu__link-item {
+        }
+
+        @supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+            #rec433687320 .t-menu__link-item,
+            #rec433687320 .t-menu__link-item.t-active {
+                opacity: 1 !important;
+            }
+        }
+        </style>
+        <script type="text/javascript"> $(document).ready(function () {
+            setTimeout(function () {
+                t_onFuncLoad('t_menusub_init', function () {
+                    t_menusub_init('433687320');
+                });
+            }, 500);
+        });
+        </script>
+        <style>@media screen and (max-width: 980px) {
+            #rec433687320 .t-menusub__menu .t-menusub__link-item {
+                color: #ffffff !important;
+            }
+
+            #rec433687320 .t-menusub__menu .t-menusub__link-item.t-active {
+                color: #ffffff !important;
+            }
+        }
+        </style>
+        <!--[if IE 8]>
+        <style>#rec433687320 .t454 {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D9ffffff', endColorstr='#D9ffffff');
+        }
+        </style><![endif]--></div>
+<div class="" style="display:flex;
+  justify-content:flex-end; margin-right: 100px">
+
+        <a class="t706__carticon-wrapper" href="{% url 'cart:detail' %}">
+            <div class="t706__carticon-imgwrap">
+                <svg class="t706__carticon-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                    <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
+                    <path fill="none" stroke-width="2" stroke-miterlimit="10"
+                          d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div id="rec433687321" class="r t-rec t-rec_pt_0 t-rec_pb_60" style="padding-top:0px;padding-bottom:60px; "
+         data-record-type="127"><!-- T119 -->
+        <div class="t119">
+            <div class="t-container t-align_center">
+                <div class="t-col t-col_8 t-prefix_2">
+
+                    <div class="t119__preface t-descr" style="font-size:28px;opacity:1;"
+                         field="text">{{ category.name }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rec437382248" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; "
+         data-record-type="106"><!-- T004 -->
+        <div class="t004">
+            <div class="t-container ">
+                <div class="t-col t-col_8 t-prefix_2">
+                    <div field="text" class="t-text t-text_md " style="">Перед тем как выбирать товары, Вы можете
+                        прочитать про курьеров, которые могут привезти вам заказ. А после выбрать из списка.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rec433759796" class="r t-rec t-rec_pt_15 t-rec_pb_90" style="padding-top:15px;padding-bottom:90px; "
+         data-record-type="191"><!-- T142 -->
+        <div class="t142">
+            <div class="t-container_100">
+                <div class="t142__wrapone">
+                    <div class="t142__wraptwo"><a href="{% url 'kurier' %}" target=""
+                                                  class="">
+                        <div class="t-btn t142__submit " style="color:#000000;border:3px solid #000000;"><span
+                                class="t142__text">Список курьеров</span></div>
+                    </a></div>
+                </div>
+            </div>
+        </div>
+        <script>$(document).ready(function () {
+            t142_checkSize('433759796');
+        });
+        $(window).on('load', function () {
+            setTimeout(function () {
+                t142_checkSize('433759796');
+            }, 500);
+        });
+        </script>
+    </div>
+    <div id="rec433687322" class="r t-rec t-rec_pt_0 t-rec_pb_180" style="padding-top:0px;padding-bottom:180px; "
+         data-animationappear="off" data-record-type="754"><!-- t754 -->
+
+        <div class="t754__parent t754__container_mobile-grid">
+            <div class="container">
+                <div class="row justify-content-md-center ">
+
+
+                    {% for product in products %}
+                        <a class="card" href="{{ product.get_absolut_url }}"
+                           style="width: 400px; padding-right: 20px;padding-left: 20px;  border: none; display: inline-block">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" class="img-fluid rounded mx-auto d-block mx-5" alt=""
+                                     style="margin-top:10px;height: 530px">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 style="text-align: center; color: black" class="card-title">{{ product.name }}</h5>
+                                <p style="text-align: center; color: black" class="card-text">{{ product.price }} р.</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+        <script>$(document).ready(function () {
+            t754__showMore('433687322');
+            setTimeout(function () {
+                t754__init('433687322');
+            }, 500);
+        });
+        </script>
+        <style type="text/css"> #rec433687322 .t-slds__bullet_active .t-slds__bullet_body {
+            background-color: #222 !important;
+        }
+
+        #rec433687322 .t-slds__bullet:hover .t-slds__bullet_body {
+            background-color: #222 !important;
+        }
+        </style>
+    </div>
+    <div id="rec433687323" class="r t-rec t-rec_pt_180 t-rec_pb_180"
+         style="padding-top:180px;padding-bottom:180px;background-color:#f0f0f0; " data-record-type="473"
+         data-bg-color="#f0f0f0"><!-- T473 -->
+        <div class="t473">
+            <div class="t-container t-align_center">
+                <div class="t-col t-col_8 t-prefix_2">
+                    <div class="t473__title t-title t-name_xs t-margin_auto" field="title"
+                         style="font-weight:700;padding-bottom:40px;text-transform:uppercase;">информация о доставке
+                    </div>
+                    <div class="t473__descr t-descr t-descr_xxxl t-margin_auto" field="descr" style="font-size:28px;">Мы
+                        находимся в Санкт-Петербурге. Вы можете заказать доставку курьером по Санкт-Петербургу с
+                        наличной оплатой .
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rec433687324" class="r t-rec t-rec_pt_150 t-rec_pb_150"
+         style="padding-top:150px;padding-bottom:150px;background-color:#ffffff; " data-record-type="560"
+         data-bg-color="#ffffff"><!-- t560-->
+        <div class="t560">
+            <div class="t-container">
+                <div class="t-col t-col_6 t-prefix_3 t-align_center">
+                    <div class="t560__text t-text-impact t-text-impact_xs t560__text-bottom-margin"
+                         style="color:#000000;font-size:28px;font-weight:300;" field="text"><a
+                            href="tel:+1 123 456 78 90" rel="noopener noreferrer">+7</a>(904)339-20-26<br/>nikisham2@mail.ru
+                    </div>
+                    <div class="t-text t-text_sm" style="color:#000000;" field="text2">По любым вопросам и для заказа
+                        свяжитесь с нами по телефону, почте и в соцсетях.
+                    </div>
+                    <div class="t-sociallinks">
+                        <div class="t-sociallinks__wrapper">
+                            <div class="t-sociallinks__item"><a href="/" target="_blank">
+                                <svg class="t-sociallinks__svg" version="1.1" id="Layer_1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     x="0px" y="0px" width="48px" height="48px" viewBox="0 0 99 99"
+                                     enable-background="new 0 0 99 99" xml:space="preserve"><desc>VK</desc>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M49 98C76.062 98 98 76.062 98 49C98 21.938 76.062 0 49 0C21.938 0 0 21.938 0 49C0 76.062 21.938 98 49 98ZM22 34C22.4442 55.3198 33.1042 68.1323 51.7933 68.1323H52.8527V55.9351C59.7202 56.6182 64.9132 61.6409 66.9973 68.1323H76.7008C74.0359 58.4292 67.0314 53.0649 62.658 51.0149C67.0314 48.4866 73.1814 42.3367 74.6505 34H65.8353C63.922 40.7649 58.251 46.915 52.8527 47.4958V34H44.0374V57.6433C38.5707 56.2766 31.6692 49.6482 31.3617 34H22Z"/></svg>
+                            </a></div>
+                            <div class="t-sociallinks__item"><a href="/" target="_blank">
+                                <svg class="t-sociallinks__svg" version="1.1" id="Layer_1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     width="48px" height="48px" viewBox="0 0 60 60" xml:space="preserve"><desc>Telegram</desc>
+                                    <path d="M30 0C13.4 0 0 13.4 0 30s13.4 30 30 30 30-13.4 30-30S46.6 0 30 0zm16.9 13.9l-6.7 31.5c-.1.6-.8.9-1.4.6l-10.3-6.9-5.5 5.2c-.5.4-1.2.2-1.4-.4L18 32.7l-9.5-3.9c-.7-.3-.7-1.5 0-1.8l37.1-14.1c.7-.2 1.4.3 1.3 1z"/>
+                                    <path d="M22.7 40.6l.6-5.8 16.8-16.3-20.2 13.3"/></svg>
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rec437586830" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; "
+         data-animationappear="off" data-record-type="708"><!-- T708 -->
+        <div class="t708" style="">
+            <div class="t708__btn" style="">
+                <div class="t708__btn_wrapper ">
+                    <svg class="t708__icon" width="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.6 17.5">
+                        <path d="M3.7 17.5v-4.8H2c-1.1 0-2-.9-2-2V2C0 .9.9 0 2 0h14.6c1.1 0 2 .9 2 2v8.8c0 1.1-.9 2-2 2H9l-5.3 4.7zM2 1c-.6 0-1 .4-1 1v8.8c0 .5.4 1 1 1h2.8v3.5l3.8-3.5h8c.5 0 1-.4 1-1V2c0-.5-.4-1-1-1H2z"/>
+                    </svg>
+                    <svg class="t708__icon-close" width="16px" height="16px" viewBox="0 0 23 23" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="#000" fill-rule="evenodd">
+                            <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
+                                  x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                            <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) "
+                                  x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                        </g>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="t708__popup">
+                <div class="t708__popup-container" style="">
+                    <div class="t708__mobile-top-panel">
+                        <div class="t708__mobile-top-panel_wrapper">
+                            <svg class="t708__mobile-icon-close" width="16px" height="16px" viewBox="0 0 23 23"
+                                 version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>Close</desc>
+                                <g stroke="none" stroke-width="1" fill="#fff" fill-rule="evenodd">
+                                    <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
+                                          x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                                    <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) "
+                                          x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="t708__wrapper">
+                        <div class="t708__title t-name t-name_xl" style="">У вас остались вопросы? Напишите нам и с вами
+                            свяжется наш администратор
+                        </div>
+                        <form id="contactForm" method="post">
+                            {% csrf_token %}
+                            <!-- Name input-->
+                            <div class="form-floating mb-2">
+                                {{ form.name }}
+                                <label for="name">Полное имя</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Введите имя</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-2">
+                                {{ form.email }}
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Введите Email</div>
+
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-2">
+                                {{ form.phone }}
+                                <label for="phone">Номер телефона</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Введите номер телефона
+                                </div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ form.message }}
+                                <label for="message">Сообщение</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите сообщение
+                                </div>
+                            </div>
+
+                            <!-- Submit Button-->
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Отправить
+                                </button>
+                            </div>
+                        </form>
+                        <style>#rec437586830 input::-webkit-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 input::-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 input:-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 input:-ms-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 textarea::-webkit-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 textarea::-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 textarea:-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec437586830 textarea:-ms-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style></style>
+        <script>$(document).ready(function () {
+            setTimeout(function () {
+                t708_initPopup('437586830');
+            }, 500);
+        });
+        </script>
+    </div>
+    <div id="rec433687325" class="r t-rec" style=" " data-animationappear="off" data-record-type="706"><!--tcart-->
+        <script>$(document).ready(function () {
+            setTimeout(function () {
+                t_onFuncLoad('tcart__init', function () {
+                    tcart__init('433687325', '');
+                });
+            }, 50);
+            /* fix for Android */
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = (ua.indexOf("android") > -1);
+            if (isAndroid && !$('.t-body').hasClass('t-body_scrollable-fix-for-android')) {
+                $('.t-body').addClass('t-body_scrollable-fix-for-android');
+                $('head').append("<style>@media screen and (max-width: 560px) {\n.t-body_scrollable-fix-for-android {\noverflow: visible !important;\n}\n}\n</style>");
+                console.log('Android css fix was inited');
+            }
+            /* fix Instagram iPhone keyboard bug */
+            if (ua.indexOf("instagram") !== -1 && ua.indexOf("iphone") !== -1) {
+                $(".t-body").css("position", "relative");
+            }
+            var cartWindow = $("#rec433687325 .t706__cartwin");
+            var curMode = $(".t-records").attr("data-tilda-mode");
+            if (cartWindow.length && curMode != "edit" && curMode != "preview") {
+                cartWindow.bind('scroll', t_throttle(function () {
+                    if (window.lazy === 'y' || $('#allrecords').attr('data-tilda-lazy') === 'yes') {
+                        t_onFuncLoad('t_lazyload_update', function () {
+                            t_lazyload_update();
+                        });
+                    }
+                }, 500));
+            }
+        });
+        </script>
+        <div class="t706" data-cart-ver="137" data-opencart-onorder="yes" data-project-currency="р."
+             data-project-currency-side="r" data-project-currency-sep="," data-project-currency-code="RUB"
+             data-payment-system="sberbank" data-cart-minorder="400" data-cart-mincntorder="3">
+            <div class="t706__carticon" style="">
+                <div class="t706__carticon-text t-name t-name_xs">Click to order</div>
+                <div class="t706__carticon-wrapper">
+                    <div class="t706__carticon-imgwrap">
+                        <svg class="t706__carticon-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"/>
+                            <path fill="none" stroke-width="2" stroke-miterlimit="10"
+                                  d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"/>
+                        </svg>
+                    </div>
+                    <div class="t706__carticon-counter js-carticon-counter" style="background-color:#ff4a4a;"></div>
+                </div>
+            </div>
+            <div class="t706__cartwin">
+                <div class="t706__cartwin-close">
+                    <div class="t706__cartwin-close-wrapper">
+                        <svg class="t706__cartwin-close-icon" width="23px" height="23px" viewBox="0 0 23 23"
+                             version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g stroke="none" stroke-width="1" fill="#fff" fill-rule="evenodd">
+                                <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
+                                      x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                                <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) "
+                                      x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="t706__cartwin-content">
+                    <div class="t706__cartwin-top">
+                        <div class="t706__cartwin-heading t-name t-name_xl"></div>
+                    </div>
+                    <div class="t706__cartwin-products"></div>
+                    <div class="t706__cartwin-bottom">
+                        <div class="t706__cartwin-prodamount-wrap t-descr t-descr_sm"><span
+                                class="t706__cartwin-prodamount-label">Total:&nbsp;</span><span
+                                class="t706__cartwin-prodamount"></span></div>
+                    </div>
+                    <div class="t706__orderform ">
+                        <form id="form433687325" name='form433687325' role="form" action='' method='POST'
+                              data-formactiontype="2" data-inputbox=".t-input-group"
+                              class="t-form js-form-proccess t-form_inputs-total_5 "
+                              data-formsended-callback="t706_onSuccessCallback"><input type="hidden"
+                                                                                       name="formservices[]"
+                                                                                       value="31b3fe4912e2d01d7cba839616d10fdb"
+                                                                                       class="js-formaction-services">
+                            <input type="hidden" name="formservices[]" value="f63c105f2e39d24a1dca0abdd74fd09c"
+                                   class="js-formaction-services">
+                            <input type="hidden" name="tildaspec-formname" tabindex="-1" value="Cart">
+                            <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;"></div>
+                            <div class="t-form__inputsbox">
+                                <div class="t-input-group t-input-group_em" data-input-lid="1496239459190">
+                                    <div class="t-input-title t-descr t-descr_md" data-redactor-toolbar="no"
+                                         field="li_title__1496239459190" style="">Ваш Email
+                                    </div>
+                                    <div class="t-input-block"><input type="text" autocomplete="email" name="Email"
+                                                                      class="t-input js-tilda-rule " value=""
+                                                                      placeholder="example@mail.ru" data-tilda-req="1"
+                                                                      data-tilda-rule="email"
+                                                                      style="color:#000000; border:1px solid #000000; ">
+                                        <div class="t-input-error"></div>
+                                    </div>
+                                </div>
+                                <div class="t-input-group t-input-group_ph" data-input-lid="1496239478607">
+                                    <div class="t-input-title t-descr t-descr_md" data-redactor-toolbar="no"
+                                         field="li_title__1496239478607" style="">Ваш телефон
+                                    </div>
+                                    <div class="t-input-block"><input type="tel" autocomplete="tel" name="Phone"
+                                                                      class="t-input js-tilda-rule js-tilda-mask "
+                                                                      value="" data-tilda-req="1"
+                                                                      data-tilda-rule="phone" pattern="[0-9]*"
+                                                                      data-tilda-mask="+7 (999) 999-9999"
+                                                                      style="color:#000000; border:1px solid #000000; ">
+                                        <input type="hidden" name="tildaspec-mask-Phone" value="+7 (999) 999-9999">
+                                        <div class="t-input-error"></div>
+                                    </div>
+                                </div>
+                                <div class="t-input-group t-input-group_dl" data-input-lid="1650313258161">
+                                    <div class="t-input-block">
+                                        <div class="t-radio__wrapper t-radio__wrapper-delivery"
+                                             data-delivery-variants-hook='y' data-delivery-free='3000'
+                                             data-delivery-services='y'>
+                                            <div class="t-input-group t-input-group_in">
+                                                <div class="t-input-block"><input class="js-tilda-rule t-input"
+                                                                                  data-tilda-rule="deliveryreq"
+                                                                                  type="hidden"
+                                                                                  name="delivery-badresponse-comment"
+                                                                                  value="nodelivery" autocomplete="off"
+                                                                                  data-tilda-req="1">
+                                                    <div class="t-input-error"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <style> #rec433687325 .t706 .t-form__inputsbox #customdelivery .t-input {
+                                            color: #000000;
+                                            border: 1px solid #000000;
+                                        }
+
+                                        #rec433687325 .t706 .t-form__inputsbox #customdelivery .t-input-title {
+                                        }
+
+                                        </style>
+                                        <div class="t-input-error"></div>
+                                    </div>
+                                </div>
+                                <div class="t-input-group t-input-group_sb" data-input-lid="1650310999327">
+                                    <div class="t-input-title t-descr t-descr_md" data-redactor-toolbar="no"
+                                         field="li_title__1650310999327" style="">Рекомендуемый курьер
+                                    </div>
+                                    <div class="t-input-block">
+                                        <div class="t-select__wrapper "><select name="Рекомендуемый курьер"
+                                                                                class="t-select js-tilda-rule "
+                                                                                style="color:#000000; border:1px solid #000000; ">
+                                            <option value="Арсений ">Арсений</option>
+                                            <option value="Ольга " selected="selected">Ольга</option>
+                                            <option value="Виктор ">Виктор</option>
+                                        </select></div>
+                                        <div class="t-input-error"></div>
+                                    </div>
+                                </div>
+                                <div class="t-input-group t-input-group_pc" data-input-lid="1650363011206">
+                                    <div class="t-input-title t-descr t-descr_md" data-redactor-toolbar="no"
+                                         field="li_title__1650363011206" style="">Промокод
+                                    </div>
+                                    <div class="t-input-block">
+                                        <div class="t-inputpromocode__wrapper" style="display:table;width:100%;"><input
+                                                type="text" name="Промокод"
+                                                class="t-input t-inputpromocode js-tilda-rule" value=""
+                                                placeholder="Введите промокод"
+                                                style="display: table-cell; color:#000000; border:1px solid #000000; "
+                                                data-tilda-rule="promocode">
+                                            <div class="t-inputpromocode__btn t-btn"
+                                                 style="display:none;position:relative;height:auto; color:#fff; background: #000;">
+                                                Активировать
+                                            </div>
+                                        </div>
+                                        <script src="https://static.tildacdn.info/js/tilda-promocode-1.0.min.js"></script>
+                                        <script>
+                                            $(document).ready(function () {
+                                                try {
+                                                    setTimeout(function () {
+                                                        t_input_promocode_init('433687325', '1650363011206');
+                                                    }, 500);
+                                                } catch (err) {
+                                                }
+                                                ;
+                                            });
+
+                                        </script>
+                                        <div class="t-input-error"></div>
+                                    </div>
+                                </div>
+                                <!--[if IE 8]>
+                                <style>.t-checkbox__control .t-checkbox, .t-radio__control .t-radio {
+                                    left: 0px;
+                                    z-index: 1;
+                                    opacity: 1;
+                                }
+
+                                .t-checkbox__indicator, .t-radio__indicator {
+                                    display: none;
+                                }
+
+                                .t-img-select__control .t-img-select {
+                                    position: static;
+                                }
+                                </style><![endif]-->
+                                <div class="t-form__errorbox-middle">
+                                    <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                                        <div class="t-form__errorbox-text t-text t-text_md"><p
+                                                class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="t-form__submit">
+                                    <button type="submit" class="t-submit"
+                                            style="color:#ffffff;background-color:#000000;">Оформить заказ
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="t-form__errorbox-bottom">
+                                <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                                    <div class="t-form__errorbox-text t-text t-text_md"><p
+                                            class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
+                                        <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p></div>
+                                </div>
+                            </div>
+                        </form>
+                        <style>#rec433687325 input::-webkit-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 input::-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 input:-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 input:-ms-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 textarea::-webkit-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 textarea::-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 textarea:-moz-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+
+                        #rec433687325 textarea:-ms-input-placeholder {
+                            color: #000000;
+                            opacity: 0.5;
+                        }
+                        </style>
+                    </div>
+                </div>
+            </div>
+            <div class="t706__cartdata"></div>
+        </div>
+        <style>@media screen and (max-width: 960px) {
+            .t706__carticon {
+            }
+        }
+        </style><!--/tcart--></div>
+</div>
+<script type="text/javascript">if (!window.mainTracker) {
+    window.mainTracker = 'tilda';
+}
+setTimeout(function () {
+    (function (d, w, k, o, g) {
+        var n = d.getElementsByTagName(o)[0], s = d.createElement(o), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.key = k;
+        s.id = "tildastatscript";
+        s.src = g;
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, '4b3c340b512d3136f81c35d2480f26a6', 'script', 'https://static.tildacdn.info/js/tilda-stat-1.0.min.js');
+}, 2000);
+</script>
+</body>
+</html>
+
+
+
+
