@@ -13437,12 +13437,95 @@
         <div class="delivery-full-address t-descr" style="opacity: 1;"></div>
         <span class="t706__cartwin-totalamount-label">Итоговая сумма: </span><span class="t706__cartwin-totalamount">{{ cart.get_total_price }} р.</span>
     </div>
-    <div class="t706__orderform ">
+
+
+
+    {% if cart.get_total_price == 0 %}
+     <div class="t706__orderform ">
             <div class="t-form__submit">
-                <a type="submit" class="t-submit" href="{% url 'orders:order_create' %}" style="color:#ffffff;background-color:#000000; padding-bottom: 20px;padding-top: 20px">Оформить заказ
-                </a>
+                <p class="t-submit"  style="color:#ffffff;background-color:#000000; padding-bottom: 20px;padding-top: 20px">Добавьте продукты в магазине
+                </p>
             </div>
     </div>
+    {% else %}
+
+<form  method="POST">
+    <div class="form-floating mb-2">
+        {% csrf_token %}
+                                {{ korm.fio }}
+                                <label for="name">Полное имя</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Введите имя</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.email }}
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Введите Email</div>
+
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.phone }}
+                                <label for="phone">Номер телефона</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Введите номер телефона
+                                </div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.street }}
+                                <label for="message">Улица</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите улицу
+                                </div>
+                            </div>
+    <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.home }}
+                                <label for="message">Дом</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите дом
+                                </div>
+                            </div>
+    <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.entrance }}
+                                <label for="message">Подъезд</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите подъезд
+                                </div>
+                            </div>
+    <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.floor }}
+                                <label for="message">Этаж</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите этаж
+                                </div>
+                            </div>
+    <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.flat }}
+                                <label for="message">Квартира</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите квартиру
+                                </div>
+                            </div>
+    <!-- Message input-->
+                            <div class="form-floating mb-2">
+                                {{ korm.description }}
+                                <label for="message">Комментарий</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Введите комментарий
+                                </div>
+                            </div>
+                            <div class="form-floating mb-2">
+                                {{ korm.kurier }}
+
+                            </div>
+    <div class="t706__orderform ">
+            <div class="t-form__submit">
+                <input type="submit" class="t-submit"  value="Оформить заказ" style="color:#ffffff;background-color:#000000; padding-bottom: 20px;padding-top: 20px">
+
+
+
+            </div>
+    </div>
+</form>
+    {% endif %}
 
     <style>#rec433687325 input::-webkit-input-placeholder {
         color: #000000;

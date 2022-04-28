@@ -6,6 +6,11 @@ from shop.models import Product, Kurier
 
 
 class Order(models.Model):
+    CHO_KUR = [
+        ('О', "Ольга"),
+        ('А', "Арсений"),
+        ('В', "Виталий")
+    ]
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -14,7 +19,7 @@ class Order(models.Model):
     fio = models.CharField(max_length=100, blank=True, null=True, default=None)
     email = models.EmailField(max_length=100,blank=True, null=True, default=None)
     phone = models.CharField(max_length=100,blank=True, null=True, default=None)
-    kurier = models.ManyToManyField(Kurier)
+    kurier = models.CharField(max_length=100, choices=CHO_KUR,blank=True, )
     street = models.CharField(max_length=100,blank=True, null=True, default=None)
     home = models.CharField(max_length=100,blank=True, null=True, default=None)
     entrance = models.CharField(max_length=100,blank=True, null=True, default=None)
